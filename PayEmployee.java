@@ -18,8 +18,8 @@ public class PayEmployee extends Employee {
         annualPay = 0;
     } // PayEmployee
     
-    public PayEmployee(double pay) {
-        super();
+    public PayEmployee(String name, String address, int ownId, int bossId, double pay) {
+        super(name, address, ownId, bossId);
         annualPay = pay;        
     } // PayEmployee
 

@@ -10,10 +10,25 @@
 package program2;
 
 public abstract class Employee {
+
     private String name;
     private String address;
-    private int ownID;
-    private int bossID;
+    private int ownId;
+    private int bossId;
+
+    public Employee() {
+        name = "";
+        address = "";
+        ownId = 0;
+        bossId = 0;
+    }
+    
+        public Employee(String name, String address, int ownId, int bossId) {
+        this.name = name;
+        this.address = address;
+        this.ownId = ownId;
+        this.bossId = bossId;
+    }
 
     public String getName() {
         return name;
@@ -31,21 +46,21 @@ public abstract class Employee {
         this.address = address;
     }
 
-    public int getOwnID() {
-        return ownID;
+    public int getOwnId() {
+        return ownId;
     }
 
-    public void setOwnID(int ownID) {
-        this.ownID = ownID;
+    public void setOwnId(int ownId) {
+        this.ownId = ownId;
     }
 
-    public int getBossID() {
-        return bossID;
+    public int getBossId() {
+        return bossId;
     }
 
-    public void setBossID(int bossID) {
-        this.bossID = bossID;
+    public void setBossId(int bossId) {
+        this.bossId = bossId;
     }
-    
+
     public abstract double getGrossWeeklyPay();
 }

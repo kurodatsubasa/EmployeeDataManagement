@@ -20,8 +20,8 @@ public class HrEmployee extends Employee {
         workHrs = 0;
     } // end HourlyEmployee
     
-    public HrEmployee(double rate, double hrs) {
-        super();
+    public HrEmployee(String name, String address, int ownId, int bossId, double rate, double hrs) {
+        super(name, address, ownId, bossId);
         payHrRate = rate;
         workHrs = hrs;
     } // end HrEmployee

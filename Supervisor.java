@@ -17,8 +17,8 @@ public class Supervisor extends PayEmployee {
         annualBonus = 0;
     } // end Supervisor
     
-    public Supervisor(double pay, double bonus) {
-        super(pay);
+    public Supervisor(String name, String address, int ownId, int bossId, double pay, double bonus) {
+        super(name, address, ownId, bossId, pay);
         annualBonus = bonus;
     } // end Supervisor
 
