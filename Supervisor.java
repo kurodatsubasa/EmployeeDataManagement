@@ -10,28 +10,34 @@
 package program2;
 
 public class Supervisor extends SalEmployee {
-    private double annualBonus;
+    // to store annual bonus
+    private double aBonus;
     
+    // default constructor
     public Supervisor() {
         super();
-        annualBonus = 0;
+        aBonus = 0;
     } // end Supervisor
     
+    // overloaded constructor
     public Supervisor(String name, String address, int ownId, int bossId, double pay, double bonus) {
         super(name, address, ownId, bossId, pay);
-        annualBonus = bonus;
+        aBonus = bonus;
     } // end Supervisor
 
-    public double getAnnualBonus() {
-        return annualBonus;
-    }
+    // Getters and Setters for annual bonus
+    public double getABonus() {
+        return aBonus;
+    } // end getABonus
 
-    public void setAnnualBonus(double annualBonus) {
-        this.annualBonus = annualBonus;
-    }
+    public void setABonus(double aBonus) {
+        this.aBonus = aBonus;
+    } // end setABonus
     
+     // overriding abstract method to calculate pay for supervisor, 
     @Override
     public double getGrossWeeklyPay() {
-        return super.getGrossWeeklyPay() + annualBonus / 52;
-    }
-}
+        // annual salary / 52 + bonus / 52
+        return super.getGrossWeeklyPay() + aBonus / SalEmployee.NUM_WEEKS;
+    } // end getGrossWeeklyPay
+} // end Supervisor

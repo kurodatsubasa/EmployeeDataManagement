@@ -9,30 +9,39 @@
  */
 package program2;
 
+// Salaried Employee
 public class SalEmployee extends Employee {
 
-    private double annualPay;
+    // to store annual salary
+    private double aPay;
+    // to store number of weeks in year
+    protected static final int NUM_WEEKS = 52;  
     
+    // default constructor
     public SalEmployee() {
         super();
-        annualPay = 0;
-    } // PayEmployee
+        aPay = 0;
+    } // end SalEmployee
     
+    // overloaded constructor
     public SalEmployee(String name, String address, int ownId, int bossId, double pay) {
         super(name, address, ownId, bossId);
-        annualPay = pay;        
-    } // PayEmployee
+        aPay = pay;        
+    } // end SalEmployee
 
-    public double getAnnualPay() {
-        return annualPay;
-    }
+    // Getters and Setters for annual salary
+    public double getAPay() {
+        return aPay;
+    } // end getAPay
 
-    public void setAnnualPay(double annualPay) {
-        this.annualPay = annualPay;
-    }
+    public void setAPay(double aPay) {
+        this.aPay = aPay;
+    } // end setAPay
 
+    // overriding abstract method to calculate pay for salaried employee, 
     @Override
     public double getGrossWeeklyPay() {
-        return annualPay / 52;
-    }
-}
+        // annual pay / 52
+        return aPay / NUM_WEEKS;
+    } // end getGrossWeeklyPay
+} // end SalEmployee
