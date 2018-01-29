@@ -9,7 +9,7 @@
  */
 package program2;
 
-public class Supervisor extends PayEmployee {
+public class Supervisor extends SalEmployee {
     private double annualBonus;
     
     public Supervisor() {
@@ -28,5 +28,10 @@ public class Supervisor extends PayEmployee {
 
     public void setAnnualBonus(double annualBonus) {
         this.annualBonus = annualBonus;
+    }
+    
+    @Override
+    public double getGrossWeeklyPay() {
+        return super.getGrossWeeklyPay() + annualBonus / 52;
     }
 }
