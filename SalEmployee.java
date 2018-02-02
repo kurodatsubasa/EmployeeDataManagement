@@ -24,8 +24,8 @@ public class SalEmployee extends Employee {
     } // end SalEmployee
     
     // overloaded constructor
-    public SalEmployee(String name, String address, int ownId, int bossId, double pay) {
-        super(name, address, ownId, bossId);
+    public SalEmployee(String title, String name, String address, int ownId, int bossId, double pay) {
+        super(title, name, address, ownId, bossId);
         aPay = pay;        
     } // end SalEmployee
 

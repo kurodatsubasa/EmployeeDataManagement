@@ -31,7 +31,8 @@ public abstract class Employee {
     } // end Employee
 
     // overloaded constructor
-    public Employee(String name, String address, int ownId, int bossId) {
+    public Employee(String title, String name, String address, int ownId, int bossId) {
+        this.title = title;
         this.name = name;
         this.address = address;
         this.ownId = ownId;
