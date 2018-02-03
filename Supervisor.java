@@ -34,10 +34,6 @@ public class Supervisor extends SalEmployee {
         this.aBonus = aBonus;
     } // end setABonus
     
-    public void getEmployeeId() {
-        
-    }
-    
      // overriding abstract method to calculate pay for supervisor, 
     @Override
     public double getGrossWeeklyPay() {

@@ -11,10 +11,13 @@ package program2;
 
 public class Program2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         EmployeeRecords records = new EmployeeRecords();
         
-        FileIO.readFile("employeeDataManagement.txt", records);
+        FileIO.readFile("employeeData.txt", records);
+        for (int i = 0; i < records.getRecords().size(); i++) {
+            System.out.println(records.getRecords().get(i).getTitle());
+        }
      
     } // end main
 } // end Program2
