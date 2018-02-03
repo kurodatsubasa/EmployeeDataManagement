@@ -12,6 +12,9 @@ package program2;
 public class Program2 {
 
     public static void main(String[] args) {
+        EmployeeRecords records = new EmployeeRecords();
+        
+        FileIO.readFile("employeeDataManagement.txt", records);
      
     } // end main
 } // end Program2

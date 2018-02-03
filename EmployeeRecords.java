@@ -12,7 +12,22 @@ package program2;
 import java.util.ArrayList;
 
 public class EmployeeRecords {
-    private ArrayList<Employee> records;    
-    
+
+    private ArrayList<Employee> records;
+
+    // default constructor
+    public EmployeeRecords() {
+        records = new ArrayList<>();
+    }
+
     // search functions should be designed here
-}
+
+    // Getters and Setters for records
+    public ArrayList<Employee> getRecords() {
+        return records;
+    } // end getRecords
+
+    public void setRecords(ArrayList<Employee> records) {
+        this.records = records;
+    } // end setRecords
+} // end EmployeeRecords

@@ -10,5 +10,9 @@
 package program2;
 
 public class FileIO {
+
+    static void readFile(String fileName, EmployeeRecords records) {
+        
+    }
     
 }

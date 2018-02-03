@@ -16,6 +16,7 @@ package program2;
 public abstract class Employee {
 
     // stores basic attributes of Employee
+    private String title;
     private String name;
     private String address;
     private int ownId;
@@ -30,7 +31,8 @@ public abstract class Employee {
     } // end Employee
 
     // overloaded constructor
-    public Employee(String name, String address, int ownId, int bossId) {
+    public Employee(String title, String name, String address, int ownId, int bossId) {
+        this.title = title;
         this.name = name;
         this.address = address;
         this.ownId = ownId;
@@ -72,6 +74,15 @@ public abstract class Employee {
     public void setBossId(int bossId) {
         this.bossId = bossId;
     } // end setBossId
+
+    // Getters and Setters for employee's title
+    public String getTitle() {
+        return title;
+    } // end getTitle
+
+    public void setTitle(String title) {
+        this.title = title;
+    } // end setTitle
 
     // abstract method for gross weekly play
     public abstract double getGrossWeeklyPay();
