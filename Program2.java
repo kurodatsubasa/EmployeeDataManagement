@@ -16,7 +16,9 @@ public class Program2 {
         
         FileIO.readFile("employeeData.txt", records);
         
+         // print by id
          records.printRecord(149200);
+         // print by title
          records.printRecord("Salaried");
          records.printRecord("Supervisor");
          records.printRecord("Hourly");        
