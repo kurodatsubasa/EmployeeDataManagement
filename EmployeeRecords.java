@@ -22,7 +22,7 @@ public class EmployeeRecords {
         records = new ArrayList<>();
     }
 
-    public void addRecords(String[] employeeData) {
+    public void addRecord(String[] employeeData) {
         try {
             // determines the record type by employee's title
             switch (employeeData[0]) {
@@ -50,9 +50,8 @@ public class EmployeeRecords {
             } // end switch
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
             System.out.println("Data format error! The following employee entry could not be added to the records:\n" + Arrays.toString(employeeData) + "\n");
-        }
-    }
-    // search functions should be designed here
+        } // end catch
+    } // end addRecord
 
     // search by employee id and get a record for that employee
     public Employee getRecordById(int id) {
@@ -79,17 +78,17 @@ public class EmployeeRecords {
     } // end getRecordTitle
 
     // search by supervisor's id and get list of subordinate's ids of that supervisor
-    public String getSubsRecordById(int id) {
+    public String getSubsId(int id) {
         // to store list of ids
         StringBuilder list = new StringBuilder();
         for (Employee record : records) {
             // if supervisor id matches, add that employee id to the list
             if (record.getBossId() == id) {
                 list.append(record.getOwnId()).append(" ");
-            }
-        }
+            } // end if
+        } // end for
         return list.toString();
-    } // end getSubsRecordId
+    } // end end getSubsId
 
     // display employee list by title
     public void printRecord(String title) {
@@ -106,7 +105,7 @@ public class EmployeeRecords {
                         break;
                     case "Supervisor":
                         System.out.printf("%-18s %d %8.2f %s\n", employee.getName(), employee.getOwnId(), employee.getGrossWeeklyPay(),
-                                 getSubsRecordById(employee.getOwnId()));
+                                 getSubsId(employee.getOwnId()));
                         break;
                 } // end switch
             } // end for

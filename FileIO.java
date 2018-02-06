@@ -28,7 +28,7 @@ public class FileIO {
                 // each field for employee record is separated by ;
                 String[] fields = currentLine.split(";");
                 // add a new entry to employee records
-                records.addRecords(fields);
+                records.addRecord(fields);
                 System.out.println(fields[0].length());
             } // end While
         } catch (FileNotFoundException e) {
