@@ -15,10 +15,11 @@ public class Program2 {
         EmployeeRecords records = new EmployeeRecords();
         
         FileIO.readFile("employeeData.txt", records);
-        for (int i = 0; i < records.getRecords().size(); i++) {
-            System.out.println(records.getRecords().get(i).getTitle());
-        }
-     
+        
+         records.printRecord(149200);
+         records.printRecord("Salaried");
+         records.printRecord("Supervisor");
+         records.printRecord("Hourly");        
     } // end main
 } // end Program2
 

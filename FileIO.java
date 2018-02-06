@@ -10,36 +10,31 @@
 package program2;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+
 
 public class FileIO {
-
-    static void readFile(String fileName, EmployeeRecords records) throws Exception {
-        BufferedReader input = new BufferedReader(new FileReader("employeeData.txt"));
-        String info = null;
+    // this method reads the file with employee info and initializes 
+    static void readFile(String fileName, EmployeeRecords records) {
+        // to store current read-in line from the file
+        String currentLine = null;
         
-        while((info = input.readLine()) != null) {
-            String[] parts = info.split(";");
-            switch(parts[0]) {
-                case "Hourly":
-                    records.getRecords().add(new HrEmployee(parts[0], parts[1], 
-                            parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), 
-                            Double.parseDouble(parts[5]), Double.parseDouble(parts[6])));
-                    break;
-                case "Salaried":
-                    records.getRecords().add(new SalEmployee(parts[0], parts[1], 
-                            parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), 
-                            Double.parseDouble(parts[5])));
-                    break;
-                case "Supervisor":
-                    records.getRecords().add(new Supervisor(parts[0], parts[1], 
-                            parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), 
-                            Double.parseDouble(parts[5]), Double.parseDouble(parts[6])));
-                    break;
-            } // end switch
-            
-        } // end While
-        input.close();
-    }
-    
-}
+        // try catch block 
+        try (BufferedReader input = new BufferedReader(new FileReader("employeeData.txt"))) {
+            // read each employee record line by line until the end of file
+            while ((currentLine = input.readLine()) != null) {
+                // each field for employee record is separated by ;
+                String[] fields = currentLine.split(";");
+                // add a new entry to employee records
+                records.addRecords(fields);
+                System.out.println(fields[0].length());
+            } // end While
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println(e);
+        } // end catch
+    } // end readFile
+} // end FileIO
