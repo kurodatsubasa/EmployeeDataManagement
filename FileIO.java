@@ -29,7 +29,6 @@ public class FileIO {
                 String[] fields = currentLine.split(";");
                 // add a new entry to employee records
                 records.addRecord(fields);
-                System.out.println(fields[0].length());
             } // end While
         } catch (FileNotFoundException e) {
             System.out.println(e);
