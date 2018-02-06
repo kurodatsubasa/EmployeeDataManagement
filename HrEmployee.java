@@ -24,7 +24,8 @@ public class HrEmployee extends Employee {
     } // end HourlyEmployee
 
     // overloaded constructor
-    public HrEmployee(String title, String name, String address, int ownId, int bossId, double rate, double hrs) {
+    public HrEmployee(String title, String name, String address, int ownId, 
+            int bossId, double rate, double hrs) {
         super(title, name, address, ownId, bossId);
         payHrRate = rate;
         workHrs = hrs;

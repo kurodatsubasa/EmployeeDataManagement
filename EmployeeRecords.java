@@ -24,32 +24,45 @@ public class EmployeeRecords {
 
     public void addRecord(String[] employeeData) {
         try {
-            // determines the record type by employee's title
-            switch (employeeData[0]) {
-                case "Hourly":
-                    // add a new record for Hourly Employee that has 7 fields
-                    records.add(new HrEmployee(employeeData[0], employeeData[1],
-                            employeeData[2], Integer.parseInt(employeeData[3]), Integer.parseInt(employeeData[4]),
-                            Double.parseDouble(employeeData[5]), Double.parseDouble(employeeData[6])));
-                    break;
-                case "Salaried":
-                    // add a new record for Salaried Employee that has 6 fields
-                    records.add(new SalEmployee(employeeData[0], employeeData[1],
-                            employeeData[2], Integer.parseInt(employeeData[3]), Integer.parseInt(employeeData[4]),
-                            Double.parseDouble(employeeData[5])));
-                    break;
-                case "Supervisor":
-                    // add a new record for Supervisor that has 7 fields
-                    records.add(new Supervisor(employeeData[0], employeeData[1],
-                            employeeData[2], Integer.parseInt(employeeData[3]), Integer.parseInt(employeeData[4]),
-                            Double.parseDouble(employeeData[5]), Double.parseDouble(employeeData[6])));
-                    break;
-                default:
-                    System.out.println("Invalid employee title! The following employee entry could not be added to the records:\n" + Arrays.toString(employeeData) + "\n");
-                    break;
-            } // end switch
+            // checks if this employee data is already in the records
+            if (getRecordById(Integer.parseInt(employeeData[3])) == null) 
+            {
+                // determines the record type by employee's title
+                switch (employeeData[0]) {
+                    case "Hourly":
+                        // add a new record for Hourly Employee that has 7 fields
+                        records.add(new HrEmployee(employeeData[0], employeeData[1],
+                                employeeData[2], Integer.parseInt(employeeData[3]), 
+                                Integer.parseInt(employeeData[4]), Double.parseDouble(employeeData[5]), 
+                                Double.parseDouble(employeeData[6])));
+                        break;
+                    case "Salaried":
+                        // add a new record for Salaried Employee that has 6 fields
+                        records.add(new SalEmployee(employeeData[0], employeeData[1],
+                                employeeData[2], Integer.parseInt(employeeData[3]), 
+                                Integer.parseInt(employeeData[4]), Double.parseDouble(employeeData[5])));
+                        break;
+                    case "Supervisor":
+                        // add a new record for Supervisor that has 7 fields
+                        records.add(new Supervisor(employeeData[0], employeeData[1],
+                                employeeData[2], Integer.parseInt(employeeData[3]), 
+                                Integer.parseInt(employeeData[4]), Double.parseDouble(employeeData[5]), 
+                                Double.parseDouble(employeeData[6])));
+                        break;
+                    default:
+                        System.out.println("Invalid employee title! The following employee entry"
+                                + " could not be added to the records:\n" + Arrays.toString(employeeData) + "\n");
+                        break;
+                } // end switch
+            } // end if
+            else {
+                System.out.println("The following employee " + employeeData[3] 
+                        + " is already in the records");
+            }
+      
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-            System.out.println("Data format error! The following employee entry could not be added to the records:\n" + Arrays.toString(employeeData) + "\n");
+            System.out.println("Data format error! The following employee entry "
+                    + "could not be added to the records:\n" + Arrays.toString(employeeData) + "\n");
         } // end catch
     } // end addRecord
 
@@ -100,12 +113,13 @@ public class EmployeeRecords {
                 switch (title) {
                     case "Hourly":
                     case "Salaried":
-                         System.out.printf("%-18s %d %8.2f\n", employee.getName(), 
-                                 employee.getOwnId(), employee.getGrossWeeklyPay());
+                        System.out.printf("%-18s %d %8.2f\n", employee.getName(),
+                                employee.getOwnId(), employee.getGrossWeeklyPay());
                         break;
                     case "Supervisor":
-                        System.out.printf("%-18s %d %8.2f %s\n", employee.getName(), employee.getOwnId(), employee.getGrossWeeklyPay(),
-                                 getSubsId(employee.getOwnId()));
+                        System.out.printf("%-18s %d %8.2f %s\n", employee.getName(),
+                                employee.getOwnId(), employee.getGrossWeeklyPay(),
+                                getSubsId(employee.getOwnId()));
                         break;
                 } // end switch
             } // end for
@@ -123,8 +137,8 @@ public class EmployeeRecords {
             System.out.println("Sorry, no employee with ID " + id + " was found.");
         } // end if
         else {
-            System.out.printf("%-18s %d %s Employee\n", employee.getName(), 
-                                 employee.getOwnId(), employee.getTitle());
+            System.out.printf("%-18s %d %s Employee\n", employee.getName(),
+                    employee.getOwnId(), employee.getTitle());
         } // end else
     } // end printRecord
 

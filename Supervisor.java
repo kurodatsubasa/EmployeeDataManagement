@@ -20,7 +20,8 @@ public class Supervisor extends SalEmployee {
     } // end Supervisor
     
     // overloaded constructor
-    public Supervisor(String title, String name, String address, int ownId, int bossId, double pay, double bonus) {
+    public Supervisor(String title, String name, String address, int ownId, 
+            int bossId, double pay, double bonus) {
         super(title, name, address, ownId, bossId, pay);
         aBonus = bonus;
     } // end Supervisor
