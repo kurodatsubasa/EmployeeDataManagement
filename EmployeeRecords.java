@@ -54,7 +54,7 @@ public class EmployeeRecords {
     } // end addRecord
 
     // search by employee id and get a record for that employee
-    public Employee getRecordById(int id) {
+    private Employee getRecordById(int id) {
         for (Employee record : records) {
             // if id matches, return that employee
             if (record.getOwnId() == id) {
@@ -65,7 +65,7 @@ public class EmployeeRecords {
     } // end getRecordId
 
     // search and get all employees with the given title
-    public ArrayList<Employee> getRecordByTitle(String title) {
+    private ArrayList<Employee> getRecordByTitle(String title) {
         // to store employees
         ArrayList<Employee> list = new ArrayList<>();
         for (Employee record : records) {
@@ -78,7 +78,7 @@ public class EmployeeRecords {
     } // end getRecordTitle
 
     // search by supervisor's id and get list of subordinate's ids of that supervisor
-    public String getSubsId(int id) {
+    private String getSubsId(int id) {
         // to store list of ids
         StringBuilder list = new StringBuilder();
         for (Employee record : records) {
